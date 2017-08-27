@@ -1,3 +1,5 @@
+*.DS_Store
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -28,6 +30,10 @@ ExportedObj/
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+# Local plugins
+Assets/Local/
+Assets/Local.meta
 
 # Builds
 *.apk
