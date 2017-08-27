@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4697bd9e5e7d44e8b003f530b497b14, type: 3}
+  m_Name: GameSettingsInstaller
+  m_EditorClassIdentifier: 
+  GameInstallerSettings:
+    AsteroidPrefab: {fileID: 100000, guid: b45da135711ed4ce796348d75b7d9169, type: 2}
+    LaserPrefab: {fileID: 100000, guid: 5c11c117a4bef46c8805d5bdc9226854, type: 2}
+  AsteroidSpawnerSettings:
+    MinVelocity: 0.5
+    MaxVelocity: 2
+    MinRotationVelocity: 25
+    MaxRotationVelocity: 150
+    MinDelayBetweenSpawns: 4
+    MaxAsteroidCount: 10
+  Asteroid:
+    AsteroidCommonSettings:
+      Health: 10
+      HitPoint: 5
+      Score: 5
+  Ship:
+    ShipCommonSettings:
+      Health: 100
+      HitPoint: 10
+    ShipLaserSettings:
+      MinDelayBetweenShoots: 3
+      Velocity: 15
