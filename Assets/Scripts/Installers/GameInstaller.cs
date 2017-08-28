@@ -16,9 +16,10 @@ public class GameInstaller: MonoInstaller<GameInstaller> {
             .ByNewPrefab(_settings.AsteroidPrefab)
             .UnderTransformGroup("Asteroids");
 
-        Container.BindMemoryPool<Laser, Laser.Pool>()
+        Container.BindMemoryPool<LaserFacade, LaserFacade.Pool>()
             .WithInitialSize(10).ExpandByDoubling()
-            .FromComponentInNewPrefab(_settings.LaserPrefab)
+            .FromSubContainerResolve()
+            .ByNewPrefab(_settings.LaserPrefab)
             .UnderTransformGroup("Lasers");
 
 

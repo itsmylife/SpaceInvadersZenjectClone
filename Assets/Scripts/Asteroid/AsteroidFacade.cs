@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class AsteroidFacade : MonoBehaviour {
+public class AsteroidFacade : MonoBehaviour, IDamageable {
     private IAsteroid asteroid;
+    private Pool asteroidPool;
+    private AsteroidCommonSettings asteroidCommonSettings;
 
+    private int currentHealth;
 
     [Inject]
     public void Construct(
-        IAsteroid asteoid
+        IAsteroid asteoid,
+        Pool asteroidPool,
+        AsteroidCommonSettings asteroidCommonSettings
     ) {
         this.asteroid = asteoid;
+        this.asteroidPool = asteroidPool;
+        this.asteroidCommonSettings = asteroidCommonSettings;
+        currentHealth = asteroidCommonSettings.Health;
     }
 
     public Vector3 Position {
@@ -28,10 +36,22 @@ public class AsteroidFacade : MonoBehaviour {
             return asteroid.Size;
         }
     }
-     
-    public void Die() {
-        Debug.Log("it should die!");
-        // TODO implement
+    /*
+    private void OnTriggerEnter2D(Collider2D other) {
+        var laser = other.GetComponent<Laser>();
+        if (laser.Type == LaserType.ShipLaser) {
+            
+        }
+        Debug.Log("Show Explosion!");
+    }
+     */
+    public void TakeDamage(int damageAmount) {
+        currentHealth -= damageAmount;
+
+        if (currentHealth <= 0) {
+            // TODO asteroidExplodedSignal.Fire(asteroidCommonSettings, asteroid.Position);
+            asteroidPool.Despawn(this);
+        }
     }
 
     public void ResetTunables(AsteroidTunables newTunables) {

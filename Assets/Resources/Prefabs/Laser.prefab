@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 21200000}
   - component: {fileID: 5000000}
   - component: {fileID: 6100000}
-  - component: {fileID: 114166015190985920}
+  - component: {fileID: 114844123987259032}
+  - component: {fileID: 114101902464385240}
+  - component: {fileID: 114287910297566486}
   m_Layer: 10
   m_Name: Laser
   m_TagString: PlayerLaser
@@ -28,7 +30,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4521512790347438}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,7 +133,36 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
---- !u!114 &114166015190985920
+--- !u!1 &1233296571589372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4521512790347438}
+  - component: {fileID: 114325081408893566}
+  m_Layer: 10
+  m_Name: Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4521512790347438
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233296571589372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114101902464385240
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,9 +170,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7f87bd1427d640edb583041b3592ba6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteRenderer: {fileID: 21200000}
-  ShipLaserSprite: {fileID: 21300000, guid: 90d3907d0508a4164a9e4cb42d11d618, type: 3}
-  EnemyLaserSprite: {fileID: 21300000, guid: ebbab6e62c59e4ddfa104a22bb011f77, type: 3}
+  _components:
+  - {fileID: 114287910297566486}
+  _identifier: 
+  _context: {fileID: 0}
+  _bindType: 0
+--- !u!114 &114287910297566486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070f55842167f4c08a6d78517951417f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114325081408893566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233296571589372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d935a7fbfe360402b8ac165516d74a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    RootObject: {fileID: 100000}
+    SpriteRenderer: {fileID: 21200000}
+    ShipLaserSprite: {fileID: 21300000, guid: 90d3907d0508a4164a9e4cb42d11d618, type: 3}
+    EnemyLaserSprite: {fileID: 21300000, guid: ebbab6e62c59e4ddfa104a22bb011f77, type: 3}
+--- !u!114 &114844123987259032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _installers:
+  - {fileID: 114325081408893566}
+  _installerPrefabs: []
+  _scriptableObjectInstallers: []
+  _kernel: {fileID: 0}

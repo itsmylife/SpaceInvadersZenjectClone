@@ -31,5 +31,5 @@ MonoBehaviour:
       Health: 100
       HitPoint: 10
     ShipLaserSettings:
-      MinDelayBetweenShoots: 3
+      MinDelayBetweenShoots: 1
       Velocity: 15

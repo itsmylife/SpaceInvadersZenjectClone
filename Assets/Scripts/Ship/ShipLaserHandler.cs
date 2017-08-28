@@ -8,8 +8,10 @@ using ModestTree.Util;
 public class ShipLaserHandler : IInitializable, IFixedTickable {
     private readonly Ship ship;
     private readonly Settings settings;
-    private readonly Laser.Pool laserPool;
+    private readonly LaserFacade.Pool laserPool;
+    private readonly ShipCommonSettings shipCommonSettings;
     private StartShootingSignal startShootingSignal;
+
 
     private float lastShootTime;
     private bool shootingAllowed = false;
@@ -17,13 +19,15 @@ public class ShipLaserHandler : IInitializable, IFixedTickable {
     public ShipLaserHandler(
         Ship ship,
         Settings settings,
-        Laser.Pool laserPool,
-        StartShootingSignal startShootingSignal
+        LaserFacade.Pool laserPool,
+        StartShootingSignal startShootingSignal,
+        ShipCommonSettings shipCommonSettings
     ) {
         this.ship = ship;
         this.settings = settings;
         this.laserPool = laserPool;
         this.startShootingSignal = startShootingSignal;
+        this.shipCommonSettings = shipCommonSettings;
     }
 
     public void Initialize() {
@@ -50,7 +54,8 @@ public class ShipLaserHandler : IInitializable, IFixedTickable {
         var tunables = new LaserTunables {
             Type = LaserType.ShipLaser,
             SpawnPoint = ship.LaserSpawnPoint.position,
-            Velocity = settings.Velocity
+            Velocity = settings.Velocity,
+            HitPoint = shipCommonSettings.HitPoint
         };
         laserPool.Spawn(tunables);
         Debug.Log("Ship: Pew pew!");

@@ -7,8 +7,9 @@ public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInsta
     public GameInstaller.Settings GameInstallerSettings;
     public AsteroidSpawner.Settings AsteroidSpawnerSettings;
 
-    public AsteroidSettings Asteroid;
     public ShipSettings Ship;
+    public AsteroidSettings Asteroid;
+    public LaserSettings Laser;
 
     
     [Serializable]
@@ -22,6 +23,10 @@ public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInsta
         public ShipLaserHandler.Settings ShipLaserSettings;
     }
 
+    [Serializable]
+    public class LaserSettings {
+        public LaserHitHandler.Settings LaserHitHandlerSettings;
+    }
 
     public override void InstallBindings() {
         Container.BindInstance(GameInstallerSettings);
@@ -30,6 +35,8 @@ public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInsta
         Container.BindInstance(Asteroid.AsteroidCommonSettings);
         Container.BindInstance(Ship.ShipCommonSettings);
         Container.BindInstance(Ship.ShipLaserSettings);
+
+        Container.BindInstance(Laser.LaserHitHandlerSettings);
     }
     
 }
