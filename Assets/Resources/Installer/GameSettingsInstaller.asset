@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: GameSettingsInstaller
   m_EditorClassIdentifier: 
   GameInstallerSettings:
+    EnemyPrefab: {fileID: 100000, guid: 5bd972a9881db47e4a5125df5b130e80, type: 2}
     AsteroidPrefab: {fileID: 100000, guid: b45da135711ed4ce796348d75b7d9169, type: 2}
     LaserPrefab: {fileID: 100000, guid: 5c11c117a4bef46c8805d5bdc9226854, type: 2}
   AsteroidSpawnerSettings:
@@ -20,12 +21,12 @@ MonoBehaviour:
     MinRotationVelocity: 25
     MaxRotationVelocity: 150
     MinDelayBetweenSpawns: 4
-    MaxAsteroidCount: 10
-  Asteroid:
-    AsteroidCommonSettings:
-      Health: 10
-      HitPoint: 5
-      Score: 5
+    MaxAsteroidCount: 8
+  EnemySpawnerSettings:
+    MinVelocity: 1
+    MaxVelocity: 2.3
+    MinDelayBetweenSpawns: 3
+    MaxEnemyCount: 15
   Ship:
     ShipCommonSettings:
       Health: 100
@@ -33,3 +34,20 @@ MonoBehaviour:
     ShipLaserSettings:
       MinDelayBetweenShoots: 1
       Velocity: 15
+  Enemy:
+    EnemyCommonSettings:
+      Health: 20
+      HitPoint: 10
+      Score: 10
+    EnemyLaserSettings:
+      MinDelayBetweenShoots: 1.5
+      Velocity: 10
+  Asteroid:
+    AsteroidCommonSettings:
+      Health: 10
+      HitPoint: 5
+      Score: 5
+  Laser:
+    LaserHitHandlerSettings:
+      LaserHitSound: {fileID: 0}
+      LaserHitSoundVolume: 1

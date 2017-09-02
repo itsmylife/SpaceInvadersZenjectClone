@@ -36,15 +36,7 @@ public class AsteroidFacade : MonoBehaviour, IDamageable {
             return asteroid.Size;
         }
     }
-    /*
-    private void OnTriggerEnter2D(Collider2D other) {
-        var laser = other.GetComponent<Laser>();
-        if (laser.Type == LaserType.ShipLaser) {
-            
-        }
-        Debug.Log("Show Explosion!");
-    }
-     */
+
     public void TakeDamage(int damageAmount) {
         currentHealth -= damageAmount;
 

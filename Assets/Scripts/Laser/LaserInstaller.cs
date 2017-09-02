@@ -15,12 +15,12 @@ public class LaserInstaller : MonoInstaller<LaserInstaller> {
                 settings.SpriteRenderer,
                 settings.ShipLaserSprite,
                 settings.EnemyLaserSprite
-            );
+        );
     }
 
     [Serializable]
-    public class Settings
-    {
+    public class Settings {
+
         public GameObject RootObject;
         public SpriteRenderer SpriteRenderer;
         public Sprite ShipLaserSprite;

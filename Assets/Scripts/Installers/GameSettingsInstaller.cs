@@ -6,8 +6,10 @@ using Zenject;
 public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller> {
     public GameInstaller.Settings GameInstallerSettings;
     public AsteroidSpawner.Settings AsteroidSpawnerSettings;
+    public EnemySpawner.Settings EnemySpawnerSettings;
 
     public ShipSettings Ship;
+    public EnemySettings Enemy;
     public AsteroidSettings Asteroid;
     public LaserSettings Laser;
 
@@ -24,17 +26,28 @@ public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInsta
     }
 
     [Serializable]
+    public class EnemySettings {
+        public EnemyCommonSettings EnemyCommonSettings;
+        public EnemyLaserHandler.Settings EnemyLaserSettings;
+    }
+
+    [Serializable]
     public class LaserSettings {
         public LaserHitHandler.Settings LaserHitHandlerSettings;
     }
 
     public override void InstallBindings() {
         Container.BindInstance(GameInstallerSettings);
-        Container.BindInstance(AsteroidSpawnerSettings);
 
         Container.BindInstance(Asteroid.AsteroidCommonSettings);
+        Container.BindInstance(AsteroidSpawnerSettings);
+
         Container.BindInstance(Ship.ShipCommonSettings);
         Container.BindInstance(Ship.ShipLaserSettings);
+
+        Container.BindInstance(EnemySpawnerSettings);
+        Container.BindInstance(Enemy.EnemyCommonSettings);
+        Container.BindInstance(Enemy.EnemyLaserSettings);
 
         Container.BindInstance(Laser.LaserHitHandlerSettings);
     }
