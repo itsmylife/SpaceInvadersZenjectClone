@@ -32,4 +32,11 @@ public class ScreenBoundary {
             return camera.aspect * camera.orthographicSize;
         }
     }
+
+    public bool IsOnScreen(IInteractiveObject interactiveObject) {
+        if (interactiveObject.Position.y < Bottom - interactiveObject.Size.y) {
+            return false;
+        }
+        return true;
+    } 
 }

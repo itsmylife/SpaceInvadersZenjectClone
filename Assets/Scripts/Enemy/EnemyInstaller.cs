@@ -14,6 +14,8 @@ public class EnemyInstaller : MonoInstaller<EnemyInstaller> {
                 settings.Collider2D,
                 settings.SpriteRenderer
             );
+
+        Container.BindInterfacesTo<EnemyMoveHandler>().AsSingle();
     }
 
     [System.Serializable]

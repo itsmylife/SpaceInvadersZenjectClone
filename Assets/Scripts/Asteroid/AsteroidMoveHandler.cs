@@ -2,20 +2,20 @@
 using UnityEngine;
 
 public class AsteroidMoveHandler : Zenject.IFixedTickable {
-    private IAsteroid asteroid;
-    private AsteroidFacade asteroidFacade;
-    private AsteroidFacade.Pool selfFactory;
-    private ScreenBoundary screenBoundary;
+    private readonly IAsteroid asteroid;
+    private readonly AsteroidFacade asteroidFacade;
+    private readonly AsteroidFacade.Pool asteroidFactory;
+    private readonly ScreenBoundary screenBoundary;
 
     public AsteroidMoveHandler(
         IAsteroid asteroid,
         AsteroidFacade asteroidFacade,
-        AsteroidFacade.Pool selfFactory,
+        AsteroidFacade.Pool asteroidFactory,
         ScreenBoundary screenBoundary
     ) {
         this.asteroid = asteroid;
         this.asteroidFacade = asteroidFacade;
-        this.selfFactory = selfFactory;
+        this.asteroidFactory = asteroidFactory;
         this.screenBoundary = screenBoundary;
     }
 
@@ -24,19 +24,10 @@ public class AsteroidMoveHandler : Zenject.IFixedTickable {
         newPosition.y -= asteroid.Tunables.Speed * Time.fixedDeltaTime; 
         asteroid.Position = newPosition;
 
-        if (!isOnScreen()) {
-            selfFactory.Despawn(asteroidFacade);
+        if (!screenBoundary.IsOnScreen(asteroid)) {
+            asteroidFactory.Despawn(asteroidFacade);
         }
     }
-
-
-    private bool isOnScreen() {
-        if (asteroid.Position.y < screenBoundary.Bottom - asteroid.Size.y) {
-            return false;
-        }
-        return true;
-    }
-
 }
 
 

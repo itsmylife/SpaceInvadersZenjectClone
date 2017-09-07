@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class EnemyFacade : MonoBehaviour {
+public class EnemyFacade : MonoBehaviour, IDamageable {
 
     private IEnemy enemy;
     private Pool enemyPool;
