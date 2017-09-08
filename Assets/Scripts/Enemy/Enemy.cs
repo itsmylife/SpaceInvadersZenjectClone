@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class Enemy : MovableObject, IEnemy {
+    private readonly Transform laserSpawnPoint;
+
     private EnemyTunables enemyTunables;
 
     public Enemy(
@@ -10,6 +13,7 @@ public class Enemy : MovableObject, IEnemy {
         Rigidbody2D rigidBody2d, 
         Collider2D collider2d, 
         SpriteRenderer spriteRenderer,
+        Transform laserSpawnPoint,
         EnemyTunables enemyTunables
     ) : base(
         rootObject, 
@@ -17,6 +21,7 @@ public class Enemy : MovableObject, IEnemy {
         collider2d,
         spriteRenderer
     ) {
+        this.laserSpawnPoint = laserSpawnPoint;
         this.enemyTunables = enemyTunables;
     }
 
@@ -41,6 +46,12 @@ public class Enemy : MovableObject, IEnemy {
     public Vector3 Size {
         get {
             return spriteRenderer.bounds.size;
+        }
+    }
+
+    public Transform LaserSpawnPoint {
+        get {
+            return laserSpawnPoint;
         }
     }
 }
