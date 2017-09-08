@@ -32,7 +32,7 @@ MonoBehaviour:
       Health: 100
       HitPoint: 10
     ShipLaserSettings:
-      MinDelayBetweenShoots: 1
+      MinDelayBetweenShoots: 0.5
       Velocity: 15
   Enemy:
     EnemyCommonSettings:
@@ -40,8 +40,8 @@ MonoBehaviour:
       HitPoint: 10
       Score: 10
     EnemyLaserSettings:
-      MinDelayBetweenShoots: 1.5
-      Velocity: 10
+      MinDelayBetweenShoots: 2
+      Velocity: 8
   Asteroid:
     AsteroidCommonSettings:
       Health: 10
