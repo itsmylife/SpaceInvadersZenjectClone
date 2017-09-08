@@ -10,8 +10,8 @@ public class ShipLaserHandler : IInitializable, IFixedTickable {
     private readonly Settings settings;
     private readonly LaserFacade.Pool laserPool;
     private readonly ShipCommonSettings shipCommonSettings;
-    private StartShootingSignal startShootingSignal;
 
+    private StartShootingSignal startShootingSignal;
 
     private float lastShootTime;
     private bool shootingAllowed = false;
@@ -35,6 +35,7 @@ public class ShipLaserHandler : IInitializable, IFixedTickable {
     }
 
     private void OnStartShootingSignalFired() {
+        startShootingSignal -= OnStartShootingSignalFired;
         shootingAllowed = true;
     }
 
