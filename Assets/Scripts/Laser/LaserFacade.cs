@@ -48,11 +48,9 @@ public class LaserFacade : MonoBehaviour {
 
 
     private void Update() {
-        if (laserTunables.Type == LaserType.ShipLaser) {
-            var newPosition = this.transform.position;
-            newPosition.y += Time.deltaTime * laserTunables.Velocity; 
-            this.transform.position = newPosition;
-        }
+        var newPosition = this.transform.position;
+        newPosition.y += Time.deltaTime * laserTunables.Velocity; 
+        this.transform.position = newPosition;
 
         if (this.transform.position.y < screenBoundary.Bottom ||
             this.transform.position.y > screenBoundary.Top) {

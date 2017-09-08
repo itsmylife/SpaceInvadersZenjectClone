@@ -5,7 +5,7 @@ using Zenject;
 
 public class EnemyFacade : MonoBehaviour, IDamageable {
 
-    private IEnemy enemy;
+    private Enemy enemy;
     private Pool enemyPool;
 
     private int currentHealth;
@@ -13,7 +13,7 @@ public class EnemyFacade : MonoBehaviour, IDamageable {
 
     [Inject]
     public void Construct(
-        IEnemy enemy,
+        Enemy enemy,
         Pool enemyPool
     ) {
         this.enemy = enemy;

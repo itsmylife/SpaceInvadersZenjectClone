@@ -24,7 +24,7 @@ public class AsteroidMoveHandler : Zenject.IFixedTickable {
         newPosition.y -= asteroid.Tunables.Speed * Time.fixedDeltaTime; 
         asteroid.Position = newPosition;
 
-        if (!screenBoundary.IsOnScreen(asteroid)) {
+        if (!screenBoundary.IsBelowBottom(asteroid)) {
             asteroidFactory.Despawn(asteroidFacade);
         }
     }

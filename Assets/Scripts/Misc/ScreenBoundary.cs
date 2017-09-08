@@ -33,10 +33,14 @@ public class ScreenBoundary {
         }
     }
 
-    public bool IsOnScreen(IInteractiveObject interactiveObject) {
+    public bool IsBelowBottom(IInteractiveObject interactiveObject) {
         if (interactiveObject.Position.y < Bottom - interactiveObject.Size.y) {
             return false;
         }
         return true;
+    } 
+
+    public bool IsOnScreen(IInteractiveObject interactiveObject) {
+        return interactiveObject.Position.y < Top;
     } 
 }
