@@ -13,7 +13,7 @@ public class Ship : MovableObject, IInteractiveObject {
         Collider2D collider2d,
         SpriteRenderer spriteRenderer,
         GameObject holdDownMessage,
-        Transform spawnPoint
+        Transform laserSpawnPoint
     ) : base(
             rootObject,
             rigidBody2d,
@@ -22,7 +22,7 @@ public class Ship : MovableObject, IInteractiveObject {
         ) {
 
         this.holdDownMessage = holdDownMessage;
-        this.laserSpawnPoint = spawnPoint;
+        this.laserSpawnPoint = laserSpawnPoint;
     }
 
     public Vector3 Position {
